@@ -1,20 +1,17 @@
-import dayjs from "dayjs"
-import { createPortal } from "react-dom"
+import dayjs from 'dayjs'
 
-export const generateRangeDates = () => {
+export const generateDatesFromYearBeginning = () => {
     
-    const firstDayOfTheYear = dayjs().startOf("year")
+  const firstDayOfTheYear = dayjs().startOf('year')
+  const today = new Date()
 
-    const toDay = new Date()
+  const dates = []
+  let compareDate = firstDayOfTheYear
 
-    const dates = []
+  while (compareDate.isBefore(today)) {
+    dates.push(compareDate.toDate())
+    compareDate = compareDate.add(1, 'day')
+  }
 
-    let compareDate = firstDayOfTheYear
-
-    while (compareDate.isBefore(toDay)) {
-        dates.push(compareDate.toDate())
-        compareDate = compareDate.add(1, 'day')
-    }
-
-    return dates
+  return dates
 }

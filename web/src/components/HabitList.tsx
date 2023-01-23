@@ -18,7 +18,7 @@ interface HabitsInfo {
   completedHabits: string[]
 }
 
-export function HabitsList({ date, onCompletedChanged }: HabitLisProps) {
+export const HabitsList = ({ date, onCompletedChanged }: HabitLisProps) => {
 
   const [habitsInfo, setHabitsInfo] = useState<HabitsInfo>()
 
